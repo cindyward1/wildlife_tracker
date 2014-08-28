@@ -1,0 +1,18 @@
+<h1>Wildlife Tracker<h1>
+
+<% if @sighting.errors.any? %>
+  </h4>Please fix these errors:</h4>
+  <ul>
+    <% @sighting.errors.full_messages.each do |sighting| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h3>Enter the following information about your sighting:</h3>
+<form action="/sightings" method="post">
+  <label for "sighting_date">Date of Sighting</label>
+  <input id="sighting_date" name="sighting[date]" type="date" value=<%= @today %>
+  <label for "sighting_species">Species Sighted</label>
+  <input id="sighting_species" name="sighting[specie]" type="text">
+  <label for "sighting_latitude" name="sighting[latitude]"
