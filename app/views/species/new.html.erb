@@ -1,0 +1,24 @@
+<h1><b>Wildlife Tracker</b>&nbsp&nbsp&nbsp&nbsp<%= image_tag('wildlife_tracker.png') %></h1>
+
+<% if @specie != nil %>
+  <% if @specie.errors.any? %>
+    <h4>Please fix these errors in species:</h4>
+    <ul>
+      <% @specie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
+<h3>Enter the following information about your sighting:</h3>
+<form action="/species" method="post">
+  <label for "species_name">Species Name&nbsp&nbsp</label>
+  <input id="species_name" name="name" type="text">
+  <br><br><button style="background-color:green">Add Species</button>
+</form>
+<br>
+<h4><a href="/sightings">Record a sighting</a></h4>
+<h4><a href="/sightings/all">See and maintain the list of sightings</a></h4>
+<h4><a href="/species">See and maintain the list of species that have been sighted</a></h4>
+

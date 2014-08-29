@@ -1,0 +1,13 @@
+<h1><b>Wildlife Tracker</b>&nbsp&nbsp&nbsp&nbsp<%= image_tag('wildlife_tracker.png') %></h1>
+
+<h4>Click on a link to edit or see the details of the sighting</h4>
+<ul>
+  <% @sightings.each do |sighting| %>
+    <li><a href="/sightings/<%= sighting.id %>/edit">
+      <%= sighting.date %>, <%= sighting.specie.name %></a></li>
+  <% end %>
+</ul>
+<br>
+<h4><a href="/sightings">Record a sighting</a></h4>
+<h4><a href="/species/new">Add a new species</a></h4>
+<h4><a href="/species">See and maintain the list of species that have been sighted</a></h4>

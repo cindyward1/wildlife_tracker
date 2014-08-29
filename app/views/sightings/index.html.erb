@@ -1,10 +1,21 @@
-<h1><b>Wildlife Tracker</b></h1>
+<h1><b>Wildlife Tracker</b>&nbsp&nbsp&nbsp&nbsp<%= image_tag('wildlife_tracker.png') %></h1>
 
 <% if @sighting != nil %>
   <% if @sighting.errors.any? %>
-    <h4>Please fix these errors:</h4>
+    <h4>Please fix these errors in sightings:</h4>
     <ul>
-      <% @sighting.errors.full_messages.each do |sighting| %>
+      <% @sighting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
+<% if @specie != nil %>
+  <% if @specie.errors.any? %>
+    <h4>Please fix these errors in species:</h4>
+    <ul>
+      <% @specie.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
@@ -16,14 +27,18 @@
   <label for "sighting_date">Date of Sighting&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
   <input id="sighting_date" name="sighting[date]" type="date" value="<%= @today %>">
   <br><label for "sighting_species">Species Sighted&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-  <input id="sighting_species" name="sighting[specie]" type="text" size="23">
+  <input id="sighting_species" name="specie_name" type="text" size="23">
   <label for "sighting_subspecies">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSubspecies Sighted (if known)</label>
   <input id="sighting_subspecies" name="sighting[subspecies]" type="text">
   <br><label for "sighting_latitude">Latitude of Sighting</label>
-  <input id="sighting_latidude" name="sighting[latitude]" type="number" value="0.0">
+  <input id="sighting_latidude" name="sighting[latitude]" type="number" step="any" value="0.0">
   <label for "sighting_longitude">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLongitude of
             Sighting&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-  <input id="sighting_longitude" name="sighting[longitude]" type="number" value="0.0">
-  <br><br><button>Record Sighting</button>
+  <input id="sighting_longitude" name="sighting[longitude]" type="number" step="any" value="0.0">
+  <br><br><button style="background-color:green">Record Sighting</button>
 </form>
+<br>
+<h4><a href="/sightings/all">See and maintain the list of sightings</a></h4>
+<h4><a href="/species/new">Add a new species</a></h4>
+<h4><a href="/species">See and maintain the list of species that have been sighted</a></h4>
 
