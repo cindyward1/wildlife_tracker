@@ -1,11 +1,17 @@
 <h1><b>Wildlife Tracker</b>&nbsp&nbsp&nbsp&nbsp<%= image_tag('wildlife_tracker.png') %></h1>
 
-<h3>Sighting on <i><%= @sighting.date %></i> of <i><%= @sighting.specie.name %>
-      <%= @sighting.subspecies %></i> successfully recorded</h3>
+<h4>Click on a link to edit or see the details of the region</h4>
+<ul>
+  <% @regions.each do |regions| %>
+    <li><a href="/regions/<%= regions.id %>/edit">
+      <%= regions.name %></a></li>
+  <% end %>
+</ul>
 <br>
-<h4><a href="/sightings">Record another sighting</a></h4>
+<h4><a href="/sightings">Record a sighting</a></h4>
 <h4><a href="/sightings/all">See and maintain the list of sightings</a></h4>
 <h4><a href="/species/new">Add a new species</a></h4>
 <h4><a href="/species">See and maintain the list of species to be sighted</a></h4>
 <h4><a href="/regions/new">Add a new sighting region</a></h4>
-<h4><a href="/regions">See and maintain the list of sighting regions</a></h4>
+<h4>See and maintain the list of sighting regions</h4>
+

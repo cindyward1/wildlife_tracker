@@ -1,6 +1,7 @@
 class SpeciesController < ApplicationController
 
   def index
+    @species = []
     @species = Specie.all.order(:name)
     render('/species/index.html.erb')
   end

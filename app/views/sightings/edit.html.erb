@@ -17,15 +17,26 @@
             Sighting&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
   <input id="sighting_longitude" name="sighting[longitude]" type="number" step="any"
          value="<%= @sighting.longitude %>">
+  <br><label for="sighting_region">Region of Sighting&nbsp&nbsp</label>
+  <select id="sighting_region" name="sighting[region]">
+    <% if !@regions.empty? %>
+      <% @regions.each do |region| %>
+      <option value="<%= region.name %>"><%= region.name %></option>
+      <% end %>
+    <% end %>
+  </select>
   <br><br><button style="background-color:yellow">Update Sighting</button>
 </form><br>
   <button style="background-color:red"><a href="/sightings/<%= @sighting.id %>"
         data-confirm="Are you sure you want to delete this sighting?"
         data-method="delete" rel="nofollow">Delete Sighting</a></button>
 <br>
-<h4><a href="/sightings">Record another sighting</a></h4>
+<h4><a href="/sightings">Record a sighting</a></h4>
 <h4><a href="/sightings/all">See and maintain the list of sightings</a></h4>
 <h4><a href="/species/new">Add a new species</a></h4>
-<h4><a href="/species">See and maintain the list of species that have been sighted</a></h4>
+<h4><a href="/species">See and maintain the list of species to be sighted</a></h4>
+<h4><a href="/regions/new">Add a new sighting region</a></h4>
+<h4><a href="/regions">See and maintain the list of sighting regions</a></h4>
+
 
 

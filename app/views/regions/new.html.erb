@@ -1,0 +1,36 @@
+<h1><b>Wildlife Tracker</b>&nbsp&nbsp&nbsp&nbsp<%= image_tag('wildlife_tracker.png') %></h1>
+
+<% if @region != nil %>
+  <% if @region.errors.any? %>
+    <h4>Please fix these errors in Regions:</h4>
+    <ul>
+      <% @region.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
+<h3>Enter the following information about the Regions:</h3>
+<form action="/regions" method="post">
+  <label for="region_name">Region Name&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+  <input id="region_name" name="region[name]" type="text">
+  <br><label for "region_max_lat">Region Max Latitude&nbsp&nbsp&nbsp&nbsp</label>
+  <input id="region_max_lat" name="region[max_latitude]" type="number" step="any" value="0.0">
+  <label for="region_min_lat">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRegion Min
+            Latitude&nbsp&nbsp&nbsp&nbsp</label>
+  <input id="region_min_lat" name="region[min_latitude]" type="number" step="any" value="0.0">
+  <br><label for "region_max_long">Region Max Longitude&nbsp</label>
+  <input id="region_max_long" name="region[max_longitude]" type="number" step="any" value="0.0">
+  <label for="region_min_long">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRegion Min
+            Longitude&nbsp</label>
+  <input id="region_min_long" name="region[min_longitude]" type="number" step="any" value="0.0">
+  <br><br><button style="background-color:green">Add Region</button>
+</form>
+<br>
+<h4><a href="/sightings">Record a sighting</a></h4>
+<h4><a href="/sightings/all">See and maintain the list of sightings</a></h4>
+<h4><a href="/species/new">Add a new species</a></h4>
+<h4><a href="/species">See and maintain the list of species to be sighted</a></h4>
+<h4>Add a new sighting region</h4>
+<h4><a href="/regions">See and maintain the list of sighting regions</a></h4>
